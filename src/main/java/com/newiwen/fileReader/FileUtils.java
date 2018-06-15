@@ -1,7 +1,6 @@
 package com.newiwen.fileReader;
 
 import java.io.*;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Optional;
@@ -34,17 +33,17 @@ public class FileUtils {
                 if (file.isDirectory()) {
                     getMatchFileContentFileNames(resultMap, file.getAbsolutePath(), matchStr);
                 } else {
-                    if(file.getName().indexOf("txt") != -1){
+                    if (file.getName().indexOf("txt") != -1) {
                         fileMacth(resultMap, file, matchStr);
-                    }else{
+                    } else {
                         System.out.println(file.getName());
                     }
                 }
             }
         } else {
-            if(nowFile.getName().indexOf("txt") != -1){
+            if (nowFile.getName().indexOf("txt") != -1) {
                 fileMacth(resultMap, nowFile, matchStr);
-            }else{
+            } else {
                 System.out.println(nowFile.getName());
             }
 
@@ -59,8 +58,7 @@ public class FileUtils {
         int lineNum = 1;
         while ((lineText = reader.readLine()) != null) {
             if (lineText.indexOf(matchStr) != -1) {
-                String desc = "第" + lineNum + "行出现！";
-                returnMap.put(lineNum+":"+file.getAbsolutePath(), lineText);
+                returnMap.put(lineNum + ":" + file.getAbsolutePath(), lineText);
             }
             lineNum++;
         }
